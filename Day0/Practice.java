@@ -3,26 +3,26 @@ import java.util.Scanner;
 
 public class Practice {
     public static void main(String[] args) {
-        int A = 0;
-        int B = 0;
+        int score = 0;
         Scanner sc = new Scanner(System.in);
 
-
-
-        System.out.println("A값을 입력하세요: ");
-        A = sc.nextInt();
-        System.out.println("B값을 입력하세요: ");
-        B = sc.nextInt();
-        System.out.printf("%d %d\n",A,B);
-
-        if (A>B){
-            System.out.println(">");
-        } else if (A<B) {
-            System.out.println("<");
-        } else if (A==B) {
-            System.out.println("==");
+        System.out.println("시험 성적을 입력하세요 :");
+        score =sc.nextInt();
+        if (90<=score && score<=100){
+            System.out.println("A");
+        } 
+        else if (80<=score && score<=89) {
+            System.out.println("B");
+        } else if (70<=score && score<79) {
+            System.out.println("C");
+        } else if (60<=score && score<=69) {
+            System.out.println("D");
             
         }
+        else {
+            System.out.println("F");
+        }
+
 
     }
 }
