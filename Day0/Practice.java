@@ -3,37 +3,32 @@ import java.util.Scanner;
 
 public class Practice {
     public static void main(String[] args) {
-        int x = 0;
-        int y = 0;
+        int A = 0;
+        int  B = 0;
+        int C = 0;
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("x 좌표를 입력하세요: ");
-        x =sc.nextInt();
+        System.out.print("시간과 분을 입력하세요: ");
+        A =sc.nextInt();
+        B = sc.nextInt();
 
-        System.out.print("y 좌표를 입력하세요: ");
-        y =sc.nextInt();
 
-        System.out.printf("좌표 : (%d %d)\n",x,y);
+        System.out.print("오븐 시간 입력하세요: ");
+        C =sc.nextInt();
 
-        if (x>0){
-            if(y>0){
-                System.out.println("1");
-            } else if (y<0) {
-                System.out.println("4");
 
-            }
-        } else if (x<0) {
-            if(y>0){
-                System.out.println("2");
-            } else if (y<0) {
-                System.out.println("3");
 
-            }
-
+        if (C<0 || A<0 || A>23 || B<0 || B>59) {
+            System.out.println("Invalid input, please try again.");
+        } else {
+            A = (A + (B + C) / 60) % 24;
+            B = (B + C) % 60;
+            System.out.printf("Resulting time is: %d hours and %d minutes", A, B);
         }
-        else {
-            System.out.println("원점");
-        }
+
+
+
+
 
 
     }
