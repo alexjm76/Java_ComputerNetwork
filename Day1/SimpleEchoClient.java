@@ -11,14 +11,14 @@ public class SimpleEchoClient {
     public static void main(String[] args) {
         System.out.println("에코 클라이언트 시작됨");
         try {
-            InetAddress localAddress = InetAddress.getLocalHost(); //127.0.0.1
+            //InetAddress localAddress = InetAddress.getLocalHost(); //127.0.0.1
             Socket clientSocket = null;
             PrintWriter pw = null;
             BufferedReader br =null;
 
             try{
-                clientSocket = new Socket(localAddress, 6000); //로컬인 친구
-                //clientSocket = new Socket("여기에 상대방 ip넣기", 6000);
+                //clientSocket = new Socket(localAddress, 6000); //로컬인 친구
+                clientSocket = new Socket("165.246.80.64", 6000);
                 pw = new PrintWriter(clientSocket.getOutputStream(), true);
                 br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 System.out.println("Connected to server");
@@ -31,8 +31,8 @@ public class SimpleEchoClient {
                     }
                     pw.println(line); //서버로 전송
                     //서버로부터 수신받은 객체에서 라인단위로 문자열을 return
-                    String response = null;
-                    System.out.println("Server response: " + response);
+
+                    System.out.println("Server response: " + br.readLine());
                 }
 
             } catch (IOException ex) {
